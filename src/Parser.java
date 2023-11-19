@@ -7,11 +7,11 @@ public class Parser {
     private Symbol token;
     private Symbol matched;
     private LexicalUnit tokenUnit;
-    private final Lexer lexer;
+    private final LexicalAnalyzer lexicalAnalyzer;
     private ArrayList<Integer> leftMostD;
 
     public Parser(FileReader source){
-        lexer = new Lexer(source);
+        lexicalAnalyzer = new LexicalAnalyzer(source);
     }
     
     /**
@@ -22,7 +22,7 @@ public class Parser {
     public ParseTree beginParsing(){
         ParseTree parseTree = PROGRAM();
         getNextToken();
-        if (tokenUnit!=LexicalUnit.END_OF_STREAM){
+        if (tokenUnit!=LexicalUnit.EOS){
             System.err.println("Sorry but "+token.toString() + " is after lexical unit: " + LexicalUnit.END);
             System.exit(0);
         }
@@ -142,7 +142,7 @@ public class Parser {
             addLeftMostD(4); // 'print', '(', 'VarName', ')'
             children.add(match(LexicalUnit.PRINT));
             children.add(match(LexicalUnit.LPAREN)); // Left parenthesis
-            children.add(VARNAME());
+            children.add(match(LexicalUnit.VARNAME));
             children.add(match(LexicalUnit.RPAREN)); // Right parenthesis
         } else {
             syntaxError(token);
@@ -157,7 +157,7 @@ public class Parser {
             addLeftMostD(4); // 'read', '(', 'VarName', ')'
             children.add(match(LexicalUnit.READ));
             children.add(match(LexicalUnit.LPAREN)); // Left parenthesis
-            children.add(VARNAME());
+            children.add(match(LexicalUnit.VARNAME));
             children.add(match(LexicalUnit.RPAREN)); // Right parenthesis
         } else {
             syntaxError(token);
@@ -261,7 +261,7 @@ public class Parser {
 
     private ParseTree EXPRARITHTAIL() {
         ArrayList<ParseTree> children = new ArrayList<>();
-        peekNextToken();
+        getNextToken();
         switch (tokenUnit) {
             case DIVIDE: // Fall through
             case TIMES: // Fall through
@@ -297,7 +297,7 @@ public class Parser {
 
     private ParseTree CONDTAIL() {
         ArrayList<ParseTree> children = new ArrayList<>();
-        peekNextToken();
+        getNextToken();
         switch (tokenUnit) {
             case AND:
                 addLeftMostD(2); // 'and', 'Cond'
@@ -387,6 +387,24 @@ public class Parser {
         return new ParseTree(new Symbol("Assign"), children);
     }
     
+
+    private ParseTree OP() {
+        getNextToken();
+        switch (tokenUnit) {
+            case PLUS:
+                return new ParseTree(new Symbol(LexicalUnit.PLUS));
+            case MINUS:
+                return new ParseTree(new Symbol(LexicalUnit.MINUS));
+            case TIMES:
+                return new ParseTree(new Symbol(LexicalUnit.TIMES));
+            case DIVIDE:
+                return new ParseTree(new Symbol(LexicalUnit.DIVIDE));
+            default:
+                syntaxError(token);
+                return null; // Or handle the error appropriately
+        }
+    }
+
     /**__________________________________________________**/
     /**
      * Stores the type of the token in tokenUnit
@@ -412,7 +430,7 @@ public class Parser {
     private void getNextToken(){
         if (matched==null || matched.equals(token)){
             try{
-                token = lexer.nextToken();
+                token = lexicalAnalyzer.nextToken();
             } catch (IOException e){
                 e.printStackTrace();
             }

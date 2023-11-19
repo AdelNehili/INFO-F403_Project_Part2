@@ -1,20 +1,15 @@
 all:
 	jflex src/LexicalAnalyzer.flex
-	mkdir -p bin
 	javac -d bin -cp src/ src/Main.java
-	jar cfe dist/part1.jar Main -C bin .
-#	javadoc -private src/Main.java -d doc/javadoc
+	jar cfe dist/part2.jar Main -C bin .
 
 testing:
-	java -jar dist/part1.jar test/euclid.pmp
-	
-testing1:
-	java -jar dist/part1.jar test/test1.pmp
-testing2:
-	java -jar dist/part1.jar test/test2.pmp
+	java -jar dist/part2.jar -wt tree.tex test/00-euclid.pmp
+	pdflatex tree.tex > /dev/null
 
 clean:
 	rm -f src/LexicalAnalyzer.java
 	rm -rf bin/*
-	rm -f dist/part1.jar
+	rm -f dist/*.jar
 	rm -rf doc/javadoc/*
+
