@@ -1,0 +1,19 @@
+
+
+'' Long Comments there hehe ''
+
+begin
+  read(a)...
+  read(b)...
+  while 0 < b do
+    begin
+      c := b...
+      while b < a+1 do     ** computation of modulo
+        a := a-b...
+        
+      b := a...
+      a := c
+    end...
+  print(a)
+end
+

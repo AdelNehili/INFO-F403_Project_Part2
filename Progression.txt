@@ -1,0 +1,24 @@
+15/11:
+    -Nettoyage de la grammair PascalMaisPresque:
+        -Remplacement des Non-terminal Assign/While/Print/Read par leur SEUL possibilité
+        -Attention au Non-terminal For qui n'a pas de production rule?
+16/11:
+    -Ecriture d'un scipt python qui lit la "Context Free Grammar" pour en déterminer les First(1)/Follow(1)
+17/11:
+    -Ecriture d'un scipt python qui lit les First(1)/Follow(1) pour générer l'Action Table
+    -ATTENTION, NE PAS OUBLIER DE addLeftMostD(production_rule_id) dans Parser.java
+    -ATTENTION, le token FOR ne devrait pas exister (ne produit rien)
+    -Plus de left-recursion (ajout des Tail pour certain non-terminal)
+18/11:
+    -ATTENTION, le non-terminal Op ne semble pas être utilisé dans l'Action Table. On devrait avoir quelque chose de la forme suivante.
+        [ExprArithTail, /] -> Op ExprArith
+        [ExprArithTail, *] -> Op ExprArith
+        [ExprArithTail, -] -> Op ExprArith
+        [ExprArithTail, +] -> Op ExprArith
+
+        [Op, /] -> /
+        [Op, *] -> *
+        [Op, -] -> -
+        [Op, +] -> +
+    -Modification du script Python pour qu'il mette à jour directement les fichiers .txt important
+    -ATTENTION, NE PAS OUBLIER DE addLeftMostD(production_rule_id) dans Parser.java

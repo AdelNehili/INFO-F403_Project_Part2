@@ -1,0 +1,30 @@
+
+
+'' This is a sample program to test the compiler ''
+** This is a short comment
+
+begin
+  read(num1)...
+  read(num2)...
+  if num1 = 5 then
+    begin
+      num1 := num1 + num2...
+    end
+  else
+    num1 := num1 - num2...
+
+  while num1 < 10 do
+    begin
+      print(num1)...
+      num1 := num1 + 1
+    end...
+
+  while num2 < 10 do
+    begin
+      print(num2)...
+      num2 := num2 - 1...
+
+      if num2 = 2 then
+        print(num2)...
+    end
+end

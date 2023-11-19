@@ -1,0 +1,26 @@
+'' This is a long comment on one line ''
+begin end
+** This is a short comment
+bedin end
+'' This is a long comment
+   on
+   many
+   lines
+''
+bedin begin
+'' This is a long comment
+
+ containing empty lines and keywords!
+''
+
+'' This is a comment with special characters... ''
+
+'' How are ''
+
+'' Empty lines
+
+''
+
+**
+
+'' Handled ? ''

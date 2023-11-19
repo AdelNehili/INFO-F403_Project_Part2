@@ -1,0 +1,54 @@
+token: begin	lexical unit: BEG
+token: read	lexical unit: READ
+token: (	lexical unit: LPAREN
+token: a	lexical unit: VARNAME
+token: )	lexical unit: RPAREN
+token: ...	lexical unit: DOTS
+token: read	lexical unit: READ
+token: (	lexical unit: LPAREN
+token: b	lexical unit: VARNAME
+token: )	lexical unit: RPAREN
+token: ...	lexical unit: DOTS
+token: while	lexical unit: WHILE
+token: 0	lexical unit: NUMBER
+token: <	lexical unit: SMALLER
+token: b	lexical unit: VARNAME
+token: do	lexical unit: DO
+token: begin	lexical unit: BEG
+token: c	lexical unit: VARNAME
+token: :=	lexical unit: ASSIGN
+token: b	lexical unit: VARNAME
+token: ...	lexical unit: DOTS
+token: while	lexical unit: WHILE
+token: b	lexical unit: VARNAME
+token: <	lexical unit: SMALLER
+token: a	lexical unit: VARNAME
+token: +	lexical unit: PLUS
+token: 1	lexical unit: NUMBER
+token: do	lexical unit: DO
+token: a	lexical unit: VARNAME
+token: :=	lexical unit: ASSIGN
+token: a	lexical unit: VARNAME
+token: -	lexical unit: MINUS
+token: b	lexical unit: VARNAME
+token: ...	lexical unit: DOTS
+token: b	lexical unit: VARNAME
+token: :=	lexical unit: ASSIGN
+token: a	lexical unit: VARNAME
+token: ...	lexical unit: DOTS
+token: a	lexical unit: VARNAME
+token: :=	lexical unit: ASSIGN
+token: c	lexical unit: VARNAME
+token: end	lexical unit: END
+token: ...	lexical unit: DOTS
+token: print	lexical unit: PRINT
+token: (	lexical unit: LPAREN
+token: a	lexical unit: VARNAME
+token: )	lexical unit: RPAREN
+token: end	lexical unit: END
+
+Variables
+a	6
+b	7
+c	10
+

@@ -1,0 +1,48 @@
+<Program> → begin <Code> end
+
+<Code> → ε
+<Code>→ <InstList>
+
+<InstList> → <Instruction>
+<InstList>→ <Instruction> ... <InstList>
+
+<Instruction> → <Assign>
+<Instruction> → <If>
+<Instruction> → <While>
+<Instruction> → <Print>
+<Instruction> → <Read>
+<Instruction> → begin <InstList> end
+
+<Assign> → [VarName] := <ExprArith>
+
+<ExprArith> → <SimpleExpr> <ExprArithTail>
+<ExprArithTail> → <Op> <ExprArith>
+<ExprArithTail> → ε
+
+<SimpleExpr> → [VarName]
+<SimpleExpr> → [Number]
+<SimpleExpr> → ( <ExprArith> )
+<SimpleExpr> → - <ExprArith>
+
+<Op> → +
+<Op>→ -
+<Op>→ *
+<Op>→ /
+
+<If> → if <Cond> then <Instruction> else
+<If>→ if <Cond> then <Instruction> else <Instruction>
+
+<Cond> → <SimpleCond> <CondTail>
+<CondTail> → and <Cond>
+<CondTail> → or <Cond>
+<CondTail> → { <Cond> }
+<CondTail> → ε
+
+<SimpleCond> → <ExprArith> <Comp> <ExprArith>
+
+<Comp> → =
+<Comp>→ <
+
+<While> → while <Cond> do <Instruction>
+<Print> → print([VarName])
+<Read> → read([VarName])

@@ -1,0 +1,37 @@
+First Sets:
+FIRST(Program) = {'begin'}
+FIRST(Code) = {'if', 'print', 'read', 'while', 'VarName', 'begin', 'ε'}
+FIRST(InstList) = {'if', 'read', 'while', 'begin', 'VarName', 'print'}
+FIRST(Instruction) = {'if', 'print', 'read', 'while', 'VarName', 'begin'}
+FIRST(Assign) = {'VarName'}
+FIRST(ExprArith) = {'(', 'VarName', 'Number', '-'}
+FIRST(ExprArithTail) = {'+', '/', '-', '*', 'ε'}
+FIRST(SimpleExpr) = {'(', 'VarName', 'Number', '-'}
+FIRST(Op) = {'+', '/', '-', '*'}
+FIRST(If) = {'if'}
+FIRST(Cond) = {'(', 'VarName', 'Number', '-'}
+FIRST(CondTail) = {'or', 'and', '{', 'ε'}
+FIRST(SimpleCond) = {'(', 'VarName', 'Number', '-'}
+FIRST(Comp) = {'<', '='}
+FIRST(While) = {'while'}
+FIRST(Print) = {'print'}
+FIRST(Read) = {'read'}
+
+Follow Sets:
+FOLLOW(Program) = {'$'}
+FOLLOW(Code) = {'end'}
+FOLLOW(InstList) = {'end'}
+FOLLOW(Instruction) = {'...', 'else', 'end'}
+FOLLOW(Assign) = {'end', '...', 'else'}
+FOLLOW(ExprArith) = {'}', 'end', '=', 'then', 'or', '{', '/', '-', '*', ')', '<', 'else', '...', 'and', 'do', '+'}
+FOLLOW(ExprArithTail) = {'}', 'end', '=', 'then', 'or', '{', '/', '-', '*', ')', '<', 'else', '...', 'and', 'do', '+'}
+FOLLOW(SimpleExpr) = {'}', 'end', '=', 'then', 'or', '/', '{', '-', '*', ')', '<', 'else', '...', 'and', 'do', '+'}
+FOLLOW(Op) = {'(', 'VarName', 'Number', '-'}
+FOLLOW(If) = {'end', '...', 'else'}
+FOLLOW(Cond) = {'}', 'then', 'do'}
+FOLLOW(CondTail) = {'}', 'then', 'do'}
+FOLLOW(SimpleCond) = {'}', 'and', 'do', 'then', 'or', '{'}
+FOLLOW(Comp) = {'(', 'VarName', 'Number', '-'}
+FOLLOW(While) = {'end', '...', 'else'}
+FOLLOW(Print) = {'end', '...', 'else'}
+FOLLOW(Read) = {'end', '...', 'else'}
