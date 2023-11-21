@@ -30,7 +30,7 @@ all_tests: testing test_goodpmp test_operations test_incorrectIf test_badread
 clean:
 	rm -f src/LexicalAnalyzer.java
 	rm -rf bin/*
-	rm -f dist/part1.jar
+	rm -f dist/part2.jar
 	rm -rf doc/javadoc/*
 	rm -rf ./*.aux
 	rm -rf ./*.log

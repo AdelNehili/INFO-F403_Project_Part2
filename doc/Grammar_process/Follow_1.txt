@@ -1,0 +1,28 @@
+Follow : 
+<Program>  : { }
+<Code>  : { end }
+<InstList>  : { end }
+<InstList>'  : { end }
+<Instruction>  : { else end ... }
+<Assign>  : { else end ... }
+<ExprArith>  : { or and else ) end do then < = } ... }
+<ExprArith>'  : { or ) + do then - ... and else end < = } }
+<ExprArith>''  : { or and else ) end do then < = } ... }
+<T>  : { or ) + do then - ... and else end < = } }
+<T>'  : { or ) * + do then - ... / and else end < = } }
+<T>''  : { or ) + do then - ... and else end < = } }
+<U>  : { or ) * + do then - ... / and else end < = } }
+<If>  : { else end ... }
+<If>'  : { else end ... }
+<Cond>  : { do then } }
+<Cond>'  : { or do then } }
+<Cond>''  : { do then } }
+<V>  : { or do then } }
+<V>'  : { or and do then } }
+<V>''  : { or do then } }
+<W>  : { or and do then } }
+<SimpleCond>  : { or and do then } }
+<Comp>  : { [VarName] ( - [Number] }
+<While>  : { else end ... }
+<Print>  : { else end ... }
+<Read>  : { else end ... }

@@ -1,0 +1,28 @@
+First : 
+<Program>  : { begin }
+<Code>  : { epsilon [VarName] print read while begin if }
+<InstList>  : { [VarName] print read while begin if }
+<InstList>'  : { epsilon ... }
+<Instruction>  : { [VarName] print read while begin if }
+<Assign>  : { [VarName] }
+<ExprArith>  : { [VarName] ( - [Number] }
+<ExprArith>'  : { [VarName] ( - [Number] }
+<ExprArith>''  : { epsilon + - }
+<T>  : { [VarName] ( - [Number] }
+<T>'  : { [VarName] ( - [Number] }
+<T>''  : { epsilon * / }
+<U>  : { [VarName] ( - [Number] }
+<If>  : { if }
+<If>'  : { epsilon [VarName] print read while begin if }
+<Cond>  : { [VarName] ( { - [Number] }
+<Cond>'  : { [VarName] ( { - [Number] }
+<Cond>''  : { epsilon or }
+<V>  : { [VarName] ( { - [Number] }
+<V>'  : { [VarName] ( { - [Number] }
+<V>''  : { epsilon and }
+<W>  : { [VarName] ( { - [Number] }
+<SimpleCond>  : { [VarName] ( - [Number] }
+<Comp>  : { < = }
+<While>  : { while }
+<Print>  : { print }
+<Read>  : { read }

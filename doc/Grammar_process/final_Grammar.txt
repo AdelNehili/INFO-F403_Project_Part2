@@ -1,0 +1,46 @@
+[1] < Program > → begin < Code > end
+[2] < Code > → ε
+[3] < Code > → < InstList >
+[4] < InstList > → < Instruction > < InstList >′
+[5] < InstList >′ → ... < InstList >
+[6] < InstList >′ → ε
+[7] < Instruction > → < Assign >
+[8] < Instruction > → < If >
+[9] < Instruction > → < While >
+[10] < Instruction > → < Print >
+[11] < Instruction > → < Read >
+[12] < Instruction > → begin < InstList > end
+[13] < Assign > → [VarName] := < ExprArith >
+[14] < ExprArith > → < ExprArith >′ < ExprArith >′′
+[15] < ExprArith >′ → < T >
+[16] < ExprArith >′′ → + < T > < ExprArith >′′
+[17] < ExprArith >′′ → - < T > < ExprArith >′′
+[18] < ExprArith >′′ → ε
+[19] < T > → < T >′ < T >′′
+[20] < T >′ → < U >
+[21] < T >′′ → * < U > < T >′′
+[22] < T >′′ → / < U > < T >′′
+[23] < T >′′ → ε
+[24] < U > → [VarName]
+[25] < U > → [Number]
+[26] < U > → ( < ExprArith > )
+[27] < U > → - < U >
+[28] < If > → if < Cond > then < Instruction > else < If >′
+[29] < If >′ → < Instruction >
+[30] < If >′ → ε
+[31] < Cond > → < Cond >′ < Cond >′′
+[32] < Cond >′ → < V >
+[33] < Cond >′′ → or < V > < Cond >′′
+[34] < Cond >′′ → ε
+[35] < V > → < V >′ < V >′′
+[36] < V >′ → < W >
+[37] < V >′′ → and < W > < V >′′
+[38] < V >′′ → ε
+[39] < W > → { < Cond > }
+[40] < W > → < SimpleCond >
+[41] < SimpleCond > → < ExprArith > < Comp > < ExprArith >
+[42] < Comp > → =
+[43] < Comp > → <
+[44] < While > → while < Cond > do < Instruction >
+[45] < Print > → print ([VarName])
+[46] < Read > → read ([VarName])
